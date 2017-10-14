@@ -10,9 +10,14 @@
 
 			var dataset; // Global variable
 
-			d3.csv("food.csv", function(data) {
-                dataset = data; // Once loaded, copy to dataset to account for asynchronous loading 
-				console.log(data); // Do stuff that depends on data being present here, once loaded
+			d3.csv("food.csv", function(error, data) {
+                if (error) { // If error is not null, something went wrong
+                    console.log(error); // Log the error
+                } else { // If no error, the file loaded correctly
+                    dataset = data; // Once loaded, copy to dataset to account for asynchronous loading 
+                    console.log(data); // Do stuff that depends on data being present here, once loaded
+                }
+                
 			});
 
 		</script>
