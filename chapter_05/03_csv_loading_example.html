@@ -3,13 +3,16 @@
 	<head>
 		<meta charset="utf-8">
 		<title>D3: Loading data from a CSV file</title>
-		<script type="text/javascript" src="../d3.js"></script>
+		<script type="text/javascript" src="https://d3js.org/d3.v4.min.js"></script>
 	</head>
 	<body>
 		<script type="text/javascript">
 
+			var dataset; // Global variable
+
 			d3.csv("food.csv", function(data) {
-				console.log(data);
+                dataset = data; // Once loaded, copy to dataset to account for asynchronous loading 
+				console.log(data); // Do stuff that depends on data being present here, once loaded
 			});
 
 		</script>
